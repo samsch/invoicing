@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body, #app-root {
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.invoicing {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  > {
+    flex: 0 0 auto;
+  }
+}
+
+.data-container {
+  flex: 1 1 auto;
+
+  .data-columns {
+    display: flex;
+  }
+}
+
+.invoice-data, .payment-data {
+  flex: 1 1 50%;
+
+  form > div {
+    margin-bottom: 8px;
+  }
+
+  form label {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+  }
+  form label span {
+    flex: 1 1 auto;
+  }
+  form label input {
+    flex: 0 0 auto;
+  }
+
+  .helper-text {
+    font-size: .8rem;
+  }
+}
+
+.messages {
+  flex: 0 0 auto;
+  background-color: lightseagreen;
+}
+
+.summary {
+  margin: 0 auto;
+  padding: 0 16px;
+  max-width: 480px;
+
+  > div {
+    display: flex;
+
+    > :first-child {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+.invoice, .payment {
+  display: flex;
+  max-width: 480px;
+
+  > :first-child {
+    flex: 0 0 120px;
+    text-align: center;
+  }
+  > :nth-child(2) {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  > :last-child {
+    text-align: right;
+    flex: 0 0 80px;
+  }
+}
