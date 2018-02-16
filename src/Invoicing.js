@@ -1,5 +1,4 @@
 import './invoicing.scss';
-import Inferno from 'inferno';
 import moment from 'moment';
 
 const Invoicing = props => (

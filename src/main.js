@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import Inferno from 'inferno';
+import { render as infernoRender, createVNode, createComponentVNode } from 'inferno/dist/inferno.js';
 import createStore from '@samsch/subscribe-store';
 import Promise from 'bluebird';
 import moment from 'moment';
@@ -223,7 +223,8 @@ const actions = {
 const appRoot = document.getElementById('app-root');
 
 const render = () => {
-  Inferno.render(
+  console.log('<Invoicing {...store.state} {...messagesStore.state} actions={actions} />', <Invoicing {...store.state} {...messagesStore.state} actions={actions} />);
+  infernoRender(
     <Invoicing {...store.state} {...messagesStore.state} actions={actions} />,
     appRoot
   );
@@ -232,7 +233,11 @@ const render = () => {
 store.subscribe(render);
 messagesStore.subscribe(render);
 
-render();
+try {
+  render();
+} catch (e) {
+  console.log('render error', e);
+}
 
 refreshDatasetList().catch(e => {
   console.log('Probably not logged in.', e);

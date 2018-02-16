@@ -11,12 +11,13 @@
             "last 2 edge versions"
           ]
         },
-        "useBuiltIns": "entry"
+        "useBuiltIns": "entry",
+        "modules": false
       }
     ]
   ],
   "plugins": [
-    "inferno",
+    ["babel-plugin-inferno", { "import": true }],
     "transform-object-rest-spread"
   ]
 }
