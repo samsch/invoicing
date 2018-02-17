@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import Inferno from 'inferno';
+import preact from 'preact';
 import createStore from '@samsch/subscribe-store';
 import Promise from 'bluebird';
 import moment from 'moment';
@@ -223,9 +223,10 @@ const actions = {
 const appRoot = document.getElementById('app-root');
 
 const render = () => {
-  Inferno.render(
+  preact.render(
     <Invoicing {...store.state} {...messagesStore.state} actions={actions} />,
-    appRoot
+    appRoot,
+    appRoot.childNodes[0]
   );
 };
 

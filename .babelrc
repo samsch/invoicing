@@ -16,7 +16,7 @@
     ]
   ],
   "plugins": [
-    "inferno",
+    ["transform-react-jsx", { "pragma":"preact.h" }],
     "transform-object-rest-spread"
   ]
 }
