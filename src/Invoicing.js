@@ -100,7 +100,8 @@ const Invoicing = props => (
                     type="text"
                     value={props.invNum}
                     onChange={e =>
-                      props.actions.updateField('invNum', e.target.value)}
+                      props.actions.updateField('invNum', e.target.value)
+                    }
                   />
                 </label>
               </div>
@@ -111,7 +112,8 @@ const Invoicing = props => (
                     type="text"
                     value={props.invDate}
                     onChange={e =>
-                      props.actions.updateField('invDate', e.target.value)}
+                      props.actions.updateField('invDate', e.target.value)
+                    }
                   />
                 </label>
                 <div className="helper-text">
@@ -125,13 +127,32 @@ const Invoicing = props => (
                     type="text"
                     value={props.invAmount}
                     onChange={e =>
-                      props.actions.updateField('invAmount', e.target.value)}
+                      props.actions.updateField('invAmount', e.target.value)
+                    }
                   />
                 </label>
               </div>
               <button type="submit">Add Invoice</button>
             </form>
             <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Invoice #</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {props.data.invoices.map(inv => (
+                    <tr>
+                      <td>{inv.number}</td>
+                      <td>{moment.unix(inv.date).format('MMMM Do YYYY')}</td>
+                      <td>${inv.amount / 100}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
               <ul>
                 {props.data.invoices.map(inv => (
                   <li className="invoice">
@@ -160,7 +181,8 @@ const Invoicing = props => (
                     type="text"
                     value={props.payComment}
                     onChange={e =>
-                      props.actions.updateField('payComment', e.target.value)}
+                      props.actions.updateField('payComment', e.target.value)
+                    }
                   />
                 </label>
               </div>
@@ -171,7 +193,8 @@ const Invoicing = props => (
                     type="text"
                     value={props.payDate}
                     onChange={e =>
-                      props.actions.updateField('payDate', e.target.value)}
+                      props.actions.updateField('payDate', e.target.value)
+                    }
                   />
                 </label>
                 <div className="helper-text">
@@ -185,13 +208,32 @@ const Invoicing = props => (
                     type="text"
                     value={props.payAmount}
                     onChange={e =>
-                      props.actions.updateField('payAmount', e.target.value)}
+                      props.actions.updateField('payAmount', e.target.value)
+                    }
                   />
                 </label>
               </div>
               <button type="submit">Add Payment</button>
             </form>
             <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {props.data.payments.map(payment => (
+                    <tr>
+                      <td>
+                        {moment.unix(payment.date).format('MMMM Do YYYY')}
+                      </td>
+                      <td>${payment.amount / 100}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
               <ul>
                 {props.data.payments.map(payment => (
                   <li className="payment">
