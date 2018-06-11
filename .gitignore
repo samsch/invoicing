@@ -77,6 +77,8 @@ typings/
 # dotenv environment variables file
 .env
 
+package-lock.json
+
 config.js
 client-config.js
 ssl/
