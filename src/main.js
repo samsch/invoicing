@@ -198,7 +198,7 @@ const actions = {
   requestDataset,
   addInvoice: () => {
     addInvoice({
-      number: +store.state.invNum,
+      number: store.state.invNum,
       date: store.state.invDate
         ? moment(store.state.invDate, 'YYYY-MM-DD').format('X')
         : moment().format('X'),
@@ -207,7 +207,7 @@ const actions = {
   },
   addPayment: () => {
     addPayment({
-      comment: +store.state.payComment,
+      comment: store.state.payComment,
       date: store.state.payDate
         ? moment(store.state.payDate, 'YYYY-MM-DD').format('X')
         : moment().format('X'),
